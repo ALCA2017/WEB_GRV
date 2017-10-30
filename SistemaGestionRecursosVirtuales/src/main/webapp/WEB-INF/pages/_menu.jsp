@@ -6,7 +6,7 @@
   
     | &nbsp;
   
-   <a href="${pageContext.request.contextPath}/home">Home</a>
+   <a href="${pageContext.request.contextPath}/home">Recursos</a>
  
   | &nbsp;
   

@@ -1,14 +1,19 @@
 package com.grv.spring.security.config;
 
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
+import org.springframework.oxm.xstream.XStreamMarshaller;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -23,13 +28,33 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
    // Config UTF-8 Encoding.
    @Override
    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-       StringHttpMessageConverter stringConverter = new StringHttpMessageConverter();
+      
+	   final Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
+       builder.indentOutput(true).dateFormat(new SimpleDateFormat("dd-MM-yyyy hh:mm"));
+	   
+	   StringHttpMessageConverter stringConverter = new StringHttpMessageConverter();
        stringConverter.setSupportedMediaTypes(Arrays.asList(new MediaType("text", "plain", UTF8)));
        converters.add(stringConverter);
+       
+     //  converters.add(createXmlHttpMessageConverter()); // error al activar esta lineas
+       converters.add(new MappingJackson2HttpMessageConverter());
+
+       super.configureMessageConverters(converters);       
  
        // Add other converters ...
    }
- 
+/*
+   
+   private HttpMessageConverter<Object> createXmlHttpMessageConverter() {
+       final MarshallingHttpMessageConverter xmlConverter = new MarshallingHttpMessageConverter();
+
+       final XStreamMarshaller xstreamMarshaller = new XStreamMarshaller();
+       xmlConverter.setMarshaller(xstreamMarshaller);
+       xmlConverter.setUnmarshaller(xstreamMarshaller);
+
+       return xmlConverter;
+   }
+*/
    // Static Resource Config
    // equivalents for <mvc:resources/> tags
    @Override

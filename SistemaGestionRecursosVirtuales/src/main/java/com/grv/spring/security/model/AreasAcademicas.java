@@ -10,9 +10,16 @@ public class AreasAcademicas {
 	
 	private String nombreCortoArea;
 	
-    public AreasAcademicas() {
-    }
+	
+    public AreasAcademicas(Integer idAreaAcademica, String nombreArea, String nombreCortoArea) {
+		this.idAreaAcademica = idAreaAcademica;
+		this.nombreArea 	 = nombreArea;
+		this.nombreCortoArea = nombreCortoArea;
+	}
 
+	public AreasAcademicas() {
+    }
+	
 	public Integer getIdAreaAcademica() {
 		return idAreaAcademica;
 	}

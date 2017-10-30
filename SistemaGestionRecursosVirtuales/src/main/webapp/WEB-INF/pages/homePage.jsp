@@ -8,7 +8,7 @@
 	<jsp:include page="common/menu.jsp" />
     <h1>Message : ${message}</h1>
     
-       <a href="${pageContext.request.contextPath}/verGRV">Gestionar Recursos Virtuales</a>
+       <a href="${pageContext.request.contextPath}/Recursos">Recursos Virtuales</a>
        
 </body>
 </html>

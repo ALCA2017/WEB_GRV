@@ -2,10 +2,21 @@ package com.grv.spring.security.controller;
 
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
@@ -25,6 +36,17 @@ public class MallaCurrilarController {
 	final String REST_ANIOS = "malla/anios/academicos";
 	final String REST_UNIDADES = "malla/unidades/didacticas?idAreaAcademica=";
 	
+
+	RestTemplate restTemplate = new RestTemplate();
+	
+	@RequestMapping(value = "/Recursos", method = RequestMethod.GET)
+	public ModelAndView gestionRecursosVirtuales(Model model) {	
+		
+		AnioAcademico[] aniosacademicoslist = restTemplate.getForObject(URL + REST_ANIOS, AnioAcademico[].class);		
+		return new ModelAndView("Recursos", "aniosacademicoslist", aniosacademicoslist);		
+	}
+	
+	   /*	
 	RestTemplate restTemplate = new RestTemplate();   
 	@RequestMapping(value = "/verGRV", method = RequestMethod.GET)
 	public ModelAndView gestionRecursosVirtuales(Model model, Principal principal) {	
@@ -48,4 +70,5 @@ public class MallaCurrilarController {
 		System.out.println("Ver lista Unidades: " + unidadDidacticasList[0].getTituloUnidad());
 	return new ModelAndView("gestionRecursosVirtualesPage", "unidadDidacticasList", unidadDidacticasList);
 	}
+	*/
 }
