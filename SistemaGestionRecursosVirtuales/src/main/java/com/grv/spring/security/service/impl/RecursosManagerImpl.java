@@ -33,4 +33,24 @@ public class RecursosManagerImpl implements RecursosManager{
 		return dao.getRecursoWebByTemaId(idTema);
 	}
 
+	@Override
+	public void addVideo(RecursoVideoVO video) {
+		// TODO Auto-generated method stub
+		dao.insertVideo(video);
+	}
+
+	@Override
+	public void addImagen(RecursoImagenVO imagen) {
+		// TODO Auto-generated method stub
+		dao.insertImagen(imagen);
+	}
+
+	@Override
+	public void addWeb(RecursoWebVO web) {
+		// TODO Auto-generated method stub
+		dao.insertWeb(web);
+	}
+
+
+
 }

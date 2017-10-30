@@ -61,17 +61,7 @@ public class TemasUnidadDidacticaController {
         return new ResponseEntity<List<TemasUnidadDidacticaVO>>(temas, headers, HttpStatus.OK);// temasList;
     }
 
-/*
-    @RequestMapping("studentlist")  
-    public @ResponseBody  List<Student> getStudentList() {  
-    	
-     List<Student> studentList = new ArrayList<Student>();  
-     studentList.add(new Student(23, "Meghna", "Naidu", "meghna@gmail.com", "8978767878"));  
-     studentList.add(new Student(3, "Robert", "Parera", "robert@gmail.com","8978767878"));  
-     studentList.add(new Student(93, "Andrew", "Strauss", "andrew@gmail.com", "8978767878"));  
-     studentList.add(new Student(239, "Eddy", "Knight", "knight@gmail.com",   "7978767878"));  
-     
-     return studentList;  
-    }  */    
+
+  
     
 }

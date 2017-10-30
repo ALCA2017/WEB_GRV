@@ -12,7 +12,14 @@ public interface RecursosManager {
 	
 	public List<RecursoImagenVO> getRecursosImagenList(int idTema);
 	
-	public List<RecursoWebVO> getRecursosWebList(int idTema);
+	public List<RecursoWebVO> getRecursosWebList(int idTema);	
+	
+	public void addVideo(RecursoVideoVO video);
+	
+	public void addImagen(RecursoImagenVO video);
+	
+	public void addWeb(RecursoWebVO video);
+	
 	
 
 }

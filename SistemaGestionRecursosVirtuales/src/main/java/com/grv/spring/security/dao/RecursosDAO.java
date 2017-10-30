@@ -13,5 +13,11 @@ public interface RecursosDAO {
 	public List<RecursoVideoVO> getRecursoVideoByTemaId(int idTema);
 	
 	public List<RecursoWebVO> getRecursoWebByTemaId(int idTema);
+	
+	public void insertVideo(RecursoVideoVO video);
+	
+	public void insertImagen(RecursoImagenVO imagen);
+	
+	public void insertWeb(RecursoWebVO web);
 
 }

@@ -10,20 +10,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no">		
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 
-	<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" ></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" ></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<!-- Optional JavaScript -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" ></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	
-
-	<script type="text/javascript" src="<c:url value='/js/semantic/semantic_search.js'/>"></script>
-	
-	
-
+		<script type="text/javascript" src="<c:url value='/js/semantic/semantic_search.js'/>"></script>
 	
 	
 <script type="text/javascript">
@@ -162,8 +158,6 @@ $( "#formSelectAreas").change(function() {
 			  </select>
 			</div>				
 
-		</form:form>
-		
 		<div id="Temas">		
 			<table class="table" id="temas_table" class="tbtTemas">
 	            <tr>
@@ -175,39 +169,43 @@ $( "#formSelectAreas").change(function() {
 	        </table>
 		</div>
 		
-	<div id="SemanticSearch">
-      <div class="radio icheck-sunflower">
-          <input type="radio" id="sunflower1" name="sunflower" />
-          <label for="sunflower1">Buscar Video</label>
-      </div>
-      <div class="radio icheck-sunflower">
-          <input type="radio" id="sunflower1" name="sunflower" />
-          <label for="sunflower1">Buscar Imagen</label>
-      </div>
-      <div class="radio icheck-sunflower">
-          <input type="radio" id="sunflower1" name="sunflower" />
-          <label for="sunflower1">Buscar Web</label>
-      </div>                                        
-	</div>	
-
-    <br>
-	<div class="row" id="RecursosEncontradosPorSemantica">
-		<div class="divVideo">
-		   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
-		   <p id="p1">  </p>  
-		</div>
-		<div class="divImg">
-		   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
-			    <p id="p2">  </p>
-		</div>
-		  <div class="divWeb">
-			    <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
-			    <p id="p3">  </p>
-		</div>
-	</div>
+		<div id="SemanticSearch">
+	      <div class="radio icheck-sunflower">
+	          <input type="radio" id="sunflower1" name="sunflower" />
+	          <label for="sunflower1">Buscar Video</label>
+	      </div>
+	      <div class="radio icheck-sunflower">
+	          <input type="radio" id="sunflower1" name="sunflower" />
+	          <label for="sunflower1">Buscar Imagen</label>
+	      </div>
+	      <div class="radio icheck-sunflower">
+	          <input type="radio" id="sunflower1" name="sunflower" />
+	          <label for="sunflower1">Buscar Web</label>
+	      </div>                                        
+		</div>	
 	
+	    <br>
+		<div class="row" id="RecursosEncontradosPorSemantica">
+			<div class="divVideo">
+			   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
+			   <p id="p1">  </p>  
+			</div>
+			<div class="divImg">
+			   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
+				    <p id="p2">  </p>
+			</div>
+			  <div class="divWeb">
+				    <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
+				    <p id="p3">  </p>
+			</div>
+		</div>		
+			
+		<button id="btnGuardarRecurso" >GUARDAR</button>    
+
+		</form:form>
+	</div>
 		
-	<button id="btnGuardarRecurso" >GUARDAR</button>    
+
 
   </body>
 </html>

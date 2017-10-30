@@ -16,7 +16,7 @@ import com.grv.spring.security.dao.RecursosDAO;
 import com.grv.spring.security.mapper.RecursoImagenVO;
 import com.grv.spring.security.mapper.RecursoVideoVO;
 import com.grv.spring.security.mapper.RecursoWebVO;
-import com.grv.spring.security.mapper.TemasUnidadDidacticaVO;
+import com.grv.util.Utilitarios;
 
 @Service
 @Transactional
@@ -27,6 +27,7 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
         this.setDataSource(dataSource);
     }
   	
+	Utilitarios util = new Utilitarios();
 	
 	@Override
 	public List<RecursoImagenVO> getRecursoImagenByTemaId(int idTema) {
@@ -115,6 +116,49 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 	     }); 
       return recurso;
 	}
-
+	
+	@Override
+	public void insertVideo(RecursoVideoVO video) {  
+		  
+		  String sql = "INSERT INTO bd_wsgrv.recurso_video(id_sesion, result, text, url, referencia1, referencia2, estado, fecha_actualizado) "
+		  			 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) " ;  		  
+		  
+		  this.getJdbcTemplate().update(sql, new Object[] {sql, 
+															  video.getId_sesion(), 
+															  video.getResult(), 
+															  video.getText(), 
+															  video.getURL(), 
+															  "", "", 1, util.getFechaActual()});		  
+	 }
+	
+	@Override
+	public void insertImagen(RecursoImagenVO video) {  
+		  
+		  String sql = "INSERT INTO bd_wsgrv.recurso_img(id_sesion, result, text, url, referencia1, referencia2, estado, fecha_actualizado) "
+		  			 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) " ;  		  
+		  
+		  this.getJdbcTemplate().update(sql, new Object[] {sql, 
+															  video.getId_sesion(), 
+															  video.getResult(), 
+															  video.getText(), 
+															  video.getURL(), 
+															  "", "", 1, util.getFechaActual()});		  
+	 } 
+	
+	@Override
+	public void insertWeb(RecursoWebVO video) {  
+		  
+		  String sql = "INSERT INTO bd_wsgrv.recurso_www(id_sesion, result, text, url, referencia1, referencia2, estado, fecha_actualizado) "
+		  			 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) " ;  		  
+		  
+		  this.getJdbcTemplate().update(sql, new Object[] {sql, 
+															  video.getId_sesion(), 
+															  video.getResult(), 
+															  video.getText(), 
+															  video.getURL(), 
+															  "", "", 1, util.getFechaActual()});		  
+	 }  	 
+	 
+ 
 
 }
