@@ -21,11 +21,9 @@
 	
 
 	<script type="text/javascript" src="<c:url value='/js/semantic/semantic_search.js'/>"></script>
-	<script type="text/javascript" src="<c:url value='/js/recursos.js'/>"></script>
 	
-	<!-- Css Boostrap -->
-	<link rel="stylesheet" href="<c:url value='/css/bootstrap/icheck-bootstrap/icheck-bootstrap.css'/>" type="text/css" />
-	<link rel="stylesheet" href="<c:url value='/css/bootstrap/icheck-bootstrap/icheck-bootstrap.min.css'/>" type="text/css" />
+	
+
 	
 	
 <script type="text/javascript">
@@ -131,8 +129,10 @@ $( "#formSelectAreas").change(function() {
 	<jsp:include page="common/menu.jsp" />
 
 	<div class="container">
-		<h1>List of Areas Académicas</h1>
+		<h2>Asignar Recursos a los temas de una Unidad Didactica</h2>
 	</div>
+	<br>
+	
 	<div class="container">
 	
 		<form:form method="GET" action="/Recursos/BuscarRecursos" class="form-horizontal">
