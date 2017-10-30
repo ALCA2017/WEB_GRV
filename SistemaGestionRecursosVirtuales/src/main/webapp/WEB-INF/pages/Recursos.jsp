@@ -94,7 +94,11 @@ $( "#formSelectAreas").change(function() {
 		        success: function (data) {        	
 		    	    //$.each(data, function(i, obj) {	   
 		  	    	$.each(data, function(i, item) {
-		  	    	    $('<tr>').html("<td>" + data[i].campo_tematico + "</td><td>" + data[i].nroIMG + "</td><td>" + data[i].nroVIDEO + "</td>" + "</td><td>" + data[i].nroWEB + "</td>").appendTo('#temas_table');
+		  	    	    $('<tr>').html("<td>" + data[i].campo_tematico + "</td><td>" 
+		  	    	    					  + data[i].nroIMG + "</td><td>" 
+		  	    	    					  + data[i].nroVIDEO + "</td><td>" 
+		  	    	    					  + data[i].nroWEB + "</td><td>"
+		  	    	    					  + " <input type='radio' id='"+data[i].id_sesion+"'/></td>").appendTo('#temas_table');
 		  	    	});
 		        },	        
 		        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
@@ -160,34 +164,34 @@ $( "#formSelectAreas").change(function() {
 
 		<div id="Temas">		
 			<table class="table" id="temas_table" class="tbtTemas">
-	            <tr>
+	            <tr>	            	
 	                <th>Temas de la Unidad</th>
 	                <th>Recursos Video</th>
 	                <th>Recursos Imagen</th>
-	                <th>Recursos Web</th>
+	                <th>Recursos Web</th>	 
+	                <th> + </th>               
 	            </tr>
 	        </table>
 		</div>
 		
-		<div id="SemanticSearch">
-	      <div class="radio icheck-sunflower">
-	          <input type="radio" id="sunflower1" name="sunflower" />
-	          <label for="sunflower1">Buscar Video</label>
-	      </div>
-	      <div class="radio icheck-sunflower">
-	          <input type="radio" id="sunflower1" name="sunflower" />
-	          <label for="sunflower1">Buscar Imagen</label>
-	      </div>
-	      <div class="radio icheck-sunflower">
-	          <input type="radio" id="sunflower1" name="sunflower" />
-	          <label for="sunflower1">Buscar Web</label>
-	      </div>                                        
-		</div>	
-	
-	    <br>
-		<div class="row" id="RecursosEncontradosPorSemantica">
-			<div class="divVideo">
-			   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
+		<div id="SemanticSearch">		
+			<div class="form-check">
+			   <label class="form-check-label">
+			     <input id="chkVIDEO"  type="checkbox" class="form-check-input">Video</label>
+			 </div>
+			<div class="form-check">
+			   <label class="form-check-label">
+			     <input id="chkIMG" type="checkbox" class="form-check-input">Imagen</label>
+			 </div>
+			<div class="form-check">
+			   <label class="form-check-label">
+			     <input id="chkWEB" type="checkbox" class="form-check-input">Web</label>
+			 </div>	
+			 <button id="btnBuscarRecurso" >Realizar Busqueda</button> 
+			<br>
+			<div class="row" id="RecursosEncontradosPorSemantica">
+				<div class="divVideo">
+				   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
 			   <p id="p1">  </p>  
 			</div>
 			<div class="divImg">
@@ -196,9 +200,12 @@ $( "#formSelectAreas").change(function() {
 			</div>
 			  <div class="divWeb">
 				    <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
-				    <p id="p3">  </p>
-			</div>
-		</div>		
+					    <p id="p3">  </p>
+				</div>
+			</div>					 	 		 
+		</div>	
+	
+	
 			
 		<button id="btnGuardarRecurso" >GUARDAR</button>    
 
