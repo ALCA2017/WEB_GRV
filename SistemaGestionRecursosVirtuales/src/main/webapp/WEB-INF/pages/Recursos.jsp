@@ -121,9 +121,9 @@ $( "#formSelectAreas").change(function() {
 			var params = {
 					idUnidadDidactica:id,
 					idUnidadDidactica:id,
-					idUnidadDidactica:id,
+					idUnidadDidactica:id
 					};		
-			}
+
 			
 			    $.ajax({
 			    	type: 'GET',

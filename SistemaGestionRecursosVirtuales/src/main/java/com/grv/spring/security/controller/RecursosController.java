@@ -50,11 +50,11 @@ public class RecursosController {
 	 }  	
 
 	 @RequestMapping(value = "/video/create", method = RequestMethod.POST)
-	 public String videoCreate(@ModelAttribute("video") RecursoVideoVO video) {
+	 public String videoCreate(@ModelAttribute("video") @RequestParam int Id_sesion) {
 		 
-		 RecursoVideoVO rVideo = new RecursoVideoVO();
+		 //RecursoVideoVO rVideo = new RecursoVideoVO(null, null, null, null, null, null, null, null, null);
 		 
-		 manager.addVideo(video);
+		// manager.addVideo(video);
 	     return "";
 	 }
 	 
