@@ -11,7 +11,6 @@ com\grv\spring\security\model\AreasAcademicas.class
 com\grv\spring\security\model\RecursoVideo.class
 com\grv\util\util.class
 com\grv\spring\security\model\AnioAcademico.class
-com\grv\util\DeserializacionJSON.class
 com\grv\spring\security\mapper\RecursoWebVO.class
 com\grv\spring\security\service\TemasUnidadDidacticaManager.class
 com\grv\spring\security\controller\AreasAcademicasController.class

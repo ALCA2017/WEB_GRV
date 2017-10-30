@@ -6,6 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 	<head>
+	 	
 		<!-- Required meta tags -->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no">		
@@ -21,7 +22,10 @@
 	
 		<script type="text/javascript" src="<c:url value='/js/semantic/semantic_search.js'/>"></script>
 	
-	
+		<script type="text/javascript" src="<c:url value='/js/bootstrap/js/jquery-personalizado.js'/>"></script>
+		<link rel="stylesheet" href="<c:url value='/js/bootstrap/css/bootstrap.min.css' />" type="text/css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="<c:url value='/js/bootstrap/css/estilos.css'/>" type="text/css" />
+			
 <script type="text/javascript">
 $(document).ready(function(){
 	$( "#formSelectAnios").change(function() {		
@@ -98,7 +102,7 @@ $( "#formSelectAreas").change(function() {
 		  	    	    					  + data[i].nroIMG + "</td><td>" 
 		  	    	    					  + data[i].nroVIDEO + "</td><td>" 
 		  	    	    					  + data[i].nroWEB + "</td><td>"
-		  	    	    					  + " <input type='radio' id='"+data[i].id_sesion+"'/></td>").appendTo('#temas_table');
+		  	    	    					  + " <input type='checkbox' name='chk_"+data[i].id_sesion+"' id='chk_"+[i]+"' onClick='selectChkTema()' /></td>").appendTo('#temas_table');
 		  	    	});
 		        },	        
 		        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
@@ -111,14 +115,49 @@ $( "#formSelectAreas").change(function() {
 		    });
 	
 		});	
+
+		$( "#btnGuardarRecurso").click(function() {
+			var id = $("#formSelectUnidades").val();
+			var params = {
+					idUnidadDidactica:id,
+					idUnidadDidactica:id,
+					idUnidadDidactica:id,
+					};		
+			}
+			
+			    $.ajax({
+			    	type: 'GET',
+			        url: 'unidadesAcademicas/temas_recursos',
+			        data: params,
+			        dataType: 'json',	        
+			        success: function (data) {        	
+			    	    //$.each(data, function(i, obj) {	   
+			  	    	$.each(data, function(i, item) {
+			  	    	    $('<tr>').html("<td>" + data[i].campo_tematico + "</td><td>" 
+			  	    	    					  + data[i].nroIMG + "</td><td>" 
+			  	    	    					  + data[i].nroVIDEO + "</td><td>" 
+			  	    	    					  + data[i].nroWEB + "</td><td>"
+			  	    	    					  + " <input type='checkbox' name='chk_"+data[i].id_sesion+"' id='chk_"+[i]+"' onClick='selectChkTema()' /></td>").appendTo('#temas_table');
+			  	    	});
+			        },	        
+			        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
+			        	 console.log("Status : "+textStatus );
+			        	 console.log("Error : "+errorThrown );
+			        },
+			        complete : function() {
+			        	// console.log("Complete..." );
+			       	}	        
+			    });
+		
+			});			    
+		    
 	
-	
-	$("#submitImg").click(searchImagenes);
-	$("#submitVideo").click(searchVideos);
-	$("#submitWeb").click(searchWeb);
-	
-	
-	
+		$("#submitImg").click(searchImagenes);
+		$("#submitVideo").click(searchVideos);
+		$("#submitWeb").click(searchWeb);
+		
+		//$("#btnBuscarRecurso").click(semanticSearch);
+		$("#submit").click(searchAPI);
 });
 
 
@@ -127,7 +166,8 @@ $( "#formSelectAreas").change(function() {
 	</head>
 	<body>
 	<jsp:include page="common/menu.jsp" />
-
+	 <input type="hidden" id="idSesion" name="idSesion" >
+	 <input type="hidden" id="txtABuscar" name="txtABuscar">
 	<div class="container">
 		<h2>Asignar Recursos a los temas de una Unidad Didactica</h2>
 	</div>
@@ -135,7 +175,7 @@ $( "#formSelectAreas").change(function() {
 	
 	<div class="container">
 	
-		<form:form method="GET" action="/Recursos/BuscarRecursos" class="form-horizontal">
+		<form:form method="GET" action="" class="form-horizontal">
        
 					<!-- Combo AÑO -->
 			<div class="form-group">
@@ -173,46 +213,51 @@ $( "#formSelectAreas").change(function() {
 	            </tr>
 	        </table>
 		</div>
-		
-		<div id="SemanticSearch">		
-			<div class="form-check">
-			   <label class="form-check-label">
-			     <input id="chkVIDEO"  type="checkbox" class="form-check-input">Video</label>
-			 </div>
-			<div class="form-check">
-			   <label class="form-check-label">
-			     <input id="chkIMG" type="checkbox" class="form-check-input">Imagen</label>
-			 </div>
-			<div class="form-check">
-			   <label class="form-check-label">
-			     <input id="chkWEB" type="checkbox" class="form-check-input">Web</label>
-			 </div>	
-			 <button id="btnBuscarRecurso" >Realizar Busqueda</button> 
-			<br>
-			<div class="row" id="RecursosEncontradosPorSemantica">
-				<div class="divVideo">
-				   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
-			   <p id="p1">  </p>  
-			</div>
-			<div class="divImg">
-			   <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
-				    <p id="p2">  </p>
-			</div>
-			  <div class="divWeb">
-				    <img id="img"  src="https://professor-falken.com/wp-content/uploads/2017/10/arbol-tronco-musco-humedad-bosque-raices-Fondos-de-Pantalla-HD-professor-falken.com_.jpg"  style="width:200px;height:200px;">
-					    <p id="p3">  </p>
-				</div>
-			</div>					 	 		 
-		</div>	
-	
-	
-			
-		<button id="btnGuardarRecurso" >GUARDAR</button>    
 
-		</form:form>
+		</form:form>		
+
+		<div id="SemanticSearch">		
+
+			<div class="container">
+				<div class="row">
+					<div class="form-group col-xs-12 col-md-6 col-lg-4">
+	 					<!-- <input  name="chkVIDEO" id="chkVIDEO" type="checkbox" onclick="searchVideos()" class="form-check-input">Video</label> -->
+	 					<br>
+	 					<button id="submitVideo">buscar</button>
+	 					<br>	
+						<div id="divVideo">
+			    			<img id="img"  src="http://cdn.makeuseof.com/wp-content/uploads/2010/04/DuckDuckGo.png" style="width:100px;height:100px;">						
+						</div>
+					</div>
+	
+					<div class="form-group col-xs-12 col-md-6 col-lg-4">
+						<!-- <input name="chkIMG" id="chkIMG" type="checkbox" onclick="searchImagenes()" class="form-check-input">Imagen</label>	 -->
+						 <br>
+	 						<button id="submitImg">buscar</button>
+	 					<br>	
+						<div id="divImg" >
+						    <img id="img" src="http://cdn.makeuseof.com/wp-content/uploads/2010/04/DuckDuckGo.png" style="width:100px;height:100px;">					
+						</div>
+					</div>
+	
+					<div class="form-group col-xs-12 col-md-6 col-lg-4">
+						<!-- <input name="chkWEB" id="chkWEB" type="checkbox" onclick="searchWeb()" class="form-check-input">Web</label> -->
+						 <br>
+	 					<button id="submitWeb">Web</button>
+	 					<br>
+						<div id="divWeb" class="">
+							<img id="img"  src="http://cdn.makeuseof.com/wp-content/uploads/2010/04/DuckDuckGo.png"  style="width:100px;height:100px;">
+						</div>
+					</div>
+					
+					<div class="form-group col-xs-12 col-md-6 col-lg-4">
+						  <button  id="btnGuardarRecurso" class="btn btn-danger col-xs-12 col-lg-12">GUARDAR</button>
+				  	</div>
+				</div>				
+			</div>				 	 		 
+		</div>			
+  
 	</div>
 		
-
-
   </body>
 </html>

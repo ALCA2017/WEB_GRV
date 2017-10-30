@@ -2,7 +2,6 @@ D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\mapper\UserInfoMapper.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\mapper\RecursoVideoVO.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\model\AreasAcademicas.java
-D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\util\DeserializacionJSON.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\service\impl\TemasUnidadDidacticaManagerImpl.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\RecursosDAO.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\config\WebSecurityConfig.java

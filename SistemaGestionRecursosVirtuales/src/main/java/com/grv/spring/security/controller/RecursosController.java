@@ -44,15 +44,16 @@ public class RecursosController {
 	 
 	 //http://localhost:8890/SistemaGestionRecursosVirtuales/weblist?idTema=1
 	 @RequestMapping(value = "/weblist", method = RequestMethod.GET)
-	 public @ResponseBody List<RecursoWebVO> getWebList(@RequestParam int idTema) {
-		 
-		 List<RecursoWebVO> webList =manager.getRecursosWebList(idTema); 
-	  
+	 public @ResponseBody List<RecursoWebVO> getWebList(@RequestParam int idTema) {		 
+		 List<RecursoWebVO> webList =manager.getRecursosWebList(idTema); 	  
 	  return webList;  
 	 }  	
 
 	 @RequestMapping(value = "/video/create", method = RequestMethod.POST)
 	 public String videoCreate(@ModelAttribute("video") RecursoVideoVO video) {
+		 
+		 RecursoVideoVO rVideo = new RecursoVideoVO();
+		 
 		 manager.addVideo(video);
 	     return "";
 	 }

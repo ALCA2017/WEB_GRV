@@ -1,0 +1,16 @@
+body {
+	background-color: beige;
+}
+
+.bordead {
+	background-color: aquamarine;
+	border-radius: 10px;
+}
+
+.fondo_negro_centrado {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px;
+}
