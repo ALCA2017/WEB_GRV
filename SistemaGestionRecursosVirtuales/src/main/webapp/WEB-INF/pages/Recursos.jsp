@@ -189,12 +189,7 @@ $( "#formSelectAreas").change(function() {
           <label for="sunflower1">Buscar Web</label>
       </div>                                        
 	</div>	
-	<input type="text" id="searchVideo" value="search here"  >
-    <button id="submitVideo" >Ver Videos</button>	
-	<input type="text" id="searchWeb" value="search here"  >
-    <button id="submitWeb" >Ver WWW</button>    
-	<input type="text" id="searchImg" value="search here"  >
-    <button id="submitImg" >Ver IMG</button>    
+
     <br>
 	<div class="row" id="RecursosEncontradosPorSemantica">
 		<div class="divVideo">
