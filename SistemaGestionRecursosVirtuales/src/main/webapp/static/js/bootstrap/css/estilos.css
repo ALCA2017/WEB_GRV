@@ -1,5 +1,12 @@
 body {
-	background-color: beige;
+	background-color: #314E7A;
+}
+
+h2, h3, label {
+	color: white;
+}
+.text-white {
+	color: white;
 }
 
 .bordead {
@@ -13,4 +20,14 @@ body {
 	font-weight: bold;
 	text-align: center;
 	padding: 5px;
+}
+
+.center {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.ancho {
+	width: 100%;
+ 	list-style: none;
 }

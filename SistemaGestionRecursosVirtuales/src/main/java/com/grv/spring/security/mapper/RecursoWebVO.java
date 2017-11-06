@@ -39,6 +39,13 @@ public class RecursoWebVO implements Serializable{
 		this.fecha_actualizado	= fecha_actualizado;
 	}	
 	
+    public RecursoWebVO(Integer id_sesion, String result, String text, String uRL) {
+		this.id_sesion 			= id_sesion;
+		this.Result 			= result;
+		this.Text 				= text;
+		this.URL 				= uRL;
+	}
+    
     public Integer getId_recurso_img() {
 		return id_recurso_img;
 	}

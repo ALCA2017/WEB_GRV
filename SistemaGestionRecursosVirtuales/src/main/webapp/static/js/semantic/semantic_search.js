@@ -1,3 +1,10 @@
+function GuardarRecursos(){
+	GuardarVideo()
+	GuardarImagen()
+	GuardarWeb()
+	alert("Los recursos se han guardado exitosamente!");
+}
+
 function searchAPI(){
 	var searchText= $("#search1").val();
 	var htmlContent="<ul>"; 
@@ -30,7 +37,8 @@ function searchImagenes(){
                     description: desc
                 };                
                 if (url !=""){nURL =url}else{nURL =link}                
-                htmlContent += "<li><img src='" + nURL + "' style='width:30px;height:30px;display:inline-block'/> <p style='display:inline-block'>"+desc+"</p></li>";
+     	       htmlContent += "<li><img src='" + url + "' style='width:30px;height:30px;display:inline-block'/> <p style='display:inline-block'>"+desc+"</p></li>";
+                //htmlContent += "<li><img src='" + nURL + "' style='width:30px;height:30px;display:inline-block'/> <p style='display:inline-block'>"+desc+"</p></li>";
             }
         }		
         htmlContent += "</ul>";
@@ -41,6 +49,7 @@ function searchImagenes(){
 function searchVideos(){
 	textoABuscar = 'ashok';//$('#txtABuscar').val();
 	//var searchText= $("#searchVideo").val();
+	var urlDemo = "https://www.youtube.com/watch?v=lrnmYWx9NNM";
 	var htmlContent="<ul>"; 
 	$.getJSON('http://api.duckduckgo.com/?q=ashok&format=json&pretty=1&callback=?',function(data){
 		//$.getJSON('https://api.duckduckgo.com/?q='+textoABuscar+'&t=ffsb&iax=videos&ia=videos&callback=jsonp&format=json&pretty=1',function(data){
@@ -48,7 +57,7 @@ function searchVideos(){
 	    //for (var i = 0; i < data.RelatedTopics.length;i++) {
 	        var desc= data.RelatedTopics[i].Text;
 	        var url= data.RelatedTopics[i].Icon.URL;
-	        htmlContent +="<a href='" + url + "' class='list-group-item list-group-item-action'>Dapibus ac facilisis in</a>";
+	        htmlContent +="<a href='" + urlDemo + "' class='list-group-item list-group-item-action'>"+desc+"</a>";
 	       // htmlContent += "<li><img src='" + url + "' style='width:100px;height:100px;display:inline-block'/> <p style='display:inline-block'>"+desc+"</p></li>";
 	    }
 	htmlContent += "</ul>";
@@ -73,6 +82,78 @@ function searchWeb(){
 	$('#divWeb').html(htmlContent);
 	});
 } 
+
+function GuardarVideo(){	
+	var params = {
+			Idsesion:1, Result:"Resultados de Video",
+			Text:"Estudia las variables proposicionales o sentencias lógicas, sus posibles implicaciones, evaluaciones de verdad y en algunos casos su nivel absoluto de verdad.",
+			URL:"https://www.youtube.com/watch?v=SUykzb4RXkA"
+			};	
+	    $.ajax({
+	    	type: 'GET',
+	        url: 'video/create',
+	        data: params,
+	        dataType: 'json',	        
+	        success: function (data) {        	
+	        	console.log("Se inserto video exitosamente"  );
+	        },	        
+	        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
+	        	 console.log("Status : "+textStatus );
+	        	 console.log("Error : "+errorThrown );
+	        },
+	        complete : function() {
+
+	       	}	        
+	    });
+}
+
+function GuardarImagen(){	
+	var params = {
+			Idsesion:1, Result:"Resultados de Imagenes",
+			Text:"Estudia las variables proposicionales o sentencias lógicas, sus posibles implicaciones, evaluaciones de verdad y en algunos casos su nivel absoluto de verdad.",
+			URL:"https://filosofia.laguia2000.com/wp-content/uploads/2012/12/b_001.jpg"
+			};	
+	    $.ajax({
+	    	type: 'GET',
+	        url: 'imagen/create',
+	        data: params,
+	        dataType: 'json',	        
+	        success: function (data) {        	
+	        	console.log("Se inserto imagen exitosamente"  );
+	        },	        
+	        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
+	        	 console.log("Status : "+textStatus );
+	        	 console.log("Error : "+errorThrown );
+	        },
+	        complete : function() {
+
+	       	}	        
+	    });
+}
+
+function GuardarWeb(){	
+	var params = {
+			Idsesion:1, Result:"Resultados de Web",
+			Text:"Estudia las variables proposicionales o sentencias lógicas, sus posibles implicaciones, evaluaciones de verdad y en algunos casos su nivel absoluto de verdad.",
+			URL:"http://rosmirofuentesrocha.weebly.com/uploads/6/2/7/4/6274527/deduccion_proposicional.pdf"
+			};	
+	    $.ajax({
+	    	type: 'GET',
+	        url: 'web/create',
+	        data: params,
+	        dataType: 'json',	        
+	        success: function (data) {        	
+	        	console.log("Se inserto web exitosamente"  );
+	        },	        
+	        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
+	        	 console.log("Status : "+textStatus );
+	        	 console.log("Error : "+errorThrown );
+	        },
+	        complete : function() {
+
+	       	}	        
+	    });
+}
 
 function searchApiGoogle(){
 	  var service_url = 'https://kgsearch.googleapis.com/v1/entities:search';

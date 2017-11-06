@@ -50,7 +50,7 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 														rs.getString("referencia1"),
 														rs.getString("referencia2"),
 														rs.getInt("estado"),
-														rs.getDate("estado") );
+														rs.getDate("fecha_actualizado") );
 		
 				return t;
 			}
@@ -79,7 +79,7 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 													  rs.getString("referencia1"),
 													  rs.getString("referencia2"),
 													  rs.getInt("estado"),
-													  rs.getDate("estado") );
+													  rs.getDate("fecha_actualizado") );
 		
 				return t;
 			}
@@ -108,7 +108,7 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 													  rs.getString("referencia1"),
 													  rs.getString("referencia2"),
 													  rs.getInt("estado"),
-													  rs.getDate("estado") );
+													  rs.getDate("fecha_actualizado"));
 		
 				return t;
 			}
@@ -123,12 +123,11 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 		  String sql = "INSERT INTO bd_wsgrv.recurso_video(id_sesion, result, text, url, referencia1, referencia2, estado, fecha_actualizado) "
 		  			 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) " ;  		  
 		  
-		  this.getJdbcTemplate().update(sql, new Object[] {sql, 
-															  video.getId_sesion(), 
+		  this.getJdbcTemplate().update(sql, new Object[] {	  video.getId_sesion(), 
 															  video.getResult(), 
 															  video.getText(), 
 															  video.getURL(), 
-															  "", "", 1, util.getFechaActual()});		  
+															  "", "", 1, null});		  //update -> El formato fecha no corresponde
 	 }
 	
 	@Override
@@ -137,12 +136,12 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 		  String sql = "INSERT INTO bd_wsgrv.recurso_img(id_sesion, result, text, url, referencia1, referencia2, estado, fecha_actualizado) "
 		  			 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) " ;  		  
 		  
-		  this.getJdbcTemplate().update(sql, new Object[] {sql, 
+		  this.getJdbcTemplate().update(sql, new Object[] {
 															  video.getId_sesion(), 
 															  video.getResult(), 
 															  video.getText(), 
 															  video.getURL(), 
-															  "", "", 1, util.getFechaActual()});		  
+															  "", "", 1, null});		  //update -> El formato fecha no corresponde	  
 	 } 
 	
 	@Override
@@ -151,12 +150,12 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 		  String sql = "INSERT INTO bd_wsgrv.recurso_www(id_sesion, result, text, url, referencia1, referencia2, estado, fecha_actualizado) "
 		  			 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?) " ;  		  
 		  
-		  this.getJdbcTemplate().update(sql, new Object[] {sql, 
+		  this.getJdbcTemplate().update(sql, new Object[] {
 															  video.getId_sesion(), 
 															  video.getResult(), 
 															  video.getText(), 
 															  video.getURL(), 
-															  "", "", 1, util.getFechaActual()});		  
+															  "", "", 1, null});		  //update -> El formato fecha no corresponde
 	 }  	 
 	 
  

@@ -32,7 +32,7 @@
 	      <li>
 	      	<a href="${pageContext.request.contextPath}/home">Home</a>
 	      </li>
-	      <li>
+<%-- 	      <li>
 	      	<a href="${pageContext.request.contextPath}/userInfo">verPDF</a>
 	      </li>
 	      <li>
@@ -40,7 +40,7 @@
 	      </li>
 	      <li>
 	      	<a href="${pageContext.request.contextPath}/verPdf">Pdf</a>
-	      </li>
+	      </li> --%>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
 	      <li>

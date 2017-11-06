@@ -15,6 +15,7 @@ import com.grv.spring.security.mapper.RecursoImagenVO;
 import com.grv.spring.security.mapper.RecursoVideoVO;
 import com.grv.spring.security.mapper.RecursoWebVO;
 import com.grv.spring.security.service.RecursosManager;
+import com.itextpdf.text.log.SysoCounter;
 
 
 @Controller
@@ -49,23 +50,38 @@ public class RecursosController {
 	  return webList;  
 	 }  	
 
-	 @RequestMapping(value = "/video/create", method = RequestMethod.POST)
-	 public String videoCreate(@ModelAttribute("video") @RequestParam int Id_sesion) {
+	 @RequestMapping(value = "/video/create", method = RequestMethod.GET)
+	 public @ResponseBody String videoCreate(@RequestParam(value = "Idsesion", required = true) int Idsesion,
+							   @RequestParam(value = "Result", required = true) String Result,
+							   @RequestParam(value = "Text", required = true) String Text,							   
+							   @RequestParam(value = "URL", required = true) String URL) {
+		 System.out.println("Controller Guardar Video.........");
+		 RecursoVideoVO video = 
+				 new RecursoVideoVO(Idsesion, Result, Text, URL);
 		 
-		 //RecursoVideoVO rVideo = new RecursoVideoVO(null, null, null, null, null, null, null, null, null);
-		 
-		// manager.addVideo(video);
+		 manager.addVideo(video);
 	     return "";
 	 }
 	 
-	 @RequestMapping(value = "/imagen/create", method = RequestMethod.POST)
-	 public String imagenCreate(@ModelAttribute("imagen") RecursoImagenVO imagen) {
+	 @RequestMapping(value = "/imagen/create", method = RequestMethod.GET)
+	 public @ResponseBody String imagenCreate(@RequestParam(value = "Idsesion", required = true) int Idsesion,
+			 					@RequestParam(value = "Result", required = true) String Result,
+			 					@RequestParam(value = "Text", required = true) String Text,
+			 					@RequestParam(value = "URL", required = true) String URL) {
+		 System.out.println("Controller Guardar Imagen.........");
+		 RecursoImagenVO imagen = 
+				 new RecursoImagenVO(Idsesion, Result, Text, URL);
 		 manager.addImagen(imagen);
 	     return "";
 	 }
 	 
-	 @RequestMapping(value = "/web/create", method = RequestMethod.POST)
-	 public String webCreate(@ModelAttribute("web") RecursoWebVO web) {
+	 @RequestMapping(value = "/web/create", method = RequestMethod.GET)
+	 public @ResponseBody String webCreate(@RequestParam(value = "Idsesion", required = true) int Idsesion,
+							 @RequestParam(value = "Result", required = true) String Result,
+							 @RequestParam(value = "Text", required = true) String Text,
+						  	 @RequestParam(value = "URL", required = true) String URL) {
+		 System.out.println("Controller Guardar Web.........");
+		 RecursoWebVO web = new RecursoWebVO(Idsesion, Result, Text, URL);
 		 manager.addWeb(web);
 	     return "";
 	 }	 
