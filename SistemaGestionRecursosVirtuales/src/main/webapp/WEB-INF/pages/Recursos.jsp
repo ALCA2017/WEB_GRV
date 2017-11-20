@@ -23,6 +23,24 @@
 		<script type="text/javascript" src="<c:url value='/js/bootstrap/js/jquery-personalizado.js'/>"></script>
 		<link rel="stylesheet" href="<c:url value='/js/bootstrap/css/bootstrap.min.css'/>" type="text/css" />
 		<link rel="stylesheet" href="<c:url value='/js/bootstrap/css/estilos.css'/>" type="text/css" />
+	
+	<!-- PARA API YOUTUBE-->
+	<script type="text/javascript" src="<c:url value='/js/semantic/api-youtube.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='/js/semantic/api-web.js'/>"></script>
+	
+    <link rel="stylesheet" type="text/css" href="<c:url value='/js/semantic/maincss.css'/>"  />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/js/semantic/lib/pretty-json.css'/>" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" >
+    <script src="http://code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript"></script>
+    <!-- Underscore, backbone and pretty are used for displaying the json responce in user redable format -->
+    <script type="text/javascript" src="<c:url value='/js/semantic/lib/js/underscore-min.js'/> "></script>
+    <script type="text/javascript" src="<c:url value='/js/semantic/lib/js/backbone-min.js'/> "></script>
+    <script type="text/javascript" src="<c:url value='/js/semantic/lib/js/pretty-json-min.js'/> "></script>
+	<!-- PARA API YOUTUBE-->
+	
 			
 <script type="text/javascript">
 $(document).ready(function(){
@@ -122,11 +140,54 @@ $( "#formSelectAreas").change(function() {
 		
 		//$("#btnBuscarRecurso").click(semanticSearch);
 		$("#submit").click(searchAPI);
+		
+		$(document).ready(function() {
+		    $("#hyv-searchBtn").on( "click", function( event ) {
+		    	webApiCall();
+		        youtubeApiCall();
+		        return false;
+		    });
+		});		
+		
 });
 
 
 </script>	
-	
+    <style type="text/css">
+        body{
+            background-color: #efefef;
+        }
+        .container-4 input#hyv-search {
+            width: 500px;
+            height: 30px;
+            border: 1px solid #c6c6c6;
+            font-size: 10pt;
+            float: left;
+            padding-left: 15px;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            -moz-border-top-left-radius: 5px;
+            -moz-border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .container-4 button.icon {
+            height: 30px;
+            background: #f0f0f0 url('js/semantic/images/searchicon.png') 10px 1px no-repeat;
+            background-size: 24px;
+            -webkit-border-top-right-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-topright: 5px;
+            -moz-border-radius-bottomright: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border: 1px solid #c6c6c6;
+            width: 50px;
+            margin-left: -44px;
+            color: #4f5b66;
+            font-size: 10pt;
+        }
+    </style>	
 	</head>
 	<body style="background-color: #314E7A;">
 	<jsp:include page="common/menu.jsp" />
@@ -196,13 +257,33 @@ $( "#formSelectAreas").change(function() {
 	<!-- LISTAS -->
 			<div class="container">
 				<div class="row">
-					<div class="form-group col-xs-12 col-md-6 ">
-						<button type="button" class="btn btn-primary form-control" id="submitVideo"><span class="glyphicon glyphicon-star"></span>VIDEOS</button>
+					<!-- <div class="form-group col-xs-12 col-md-6 ">
+						<button type="button" class="btn btn-primary form-control" id="submitVideo">
+						<span class="glyphicon glyphicon-star"></span>VIDEOS</button>
 						<div id="divVideo">
 		    				<img class="list-group-item list-group-item-action" id="img"  src="http://cdn.makeuseof.com/wp-content/uploads/2010/04/DuckDuckGo.png" style="width:100px;height:100px;">
 						</div>
-					</div>
+					</div> -->
 		
+                    <div class="container-4">
+                        <form action="" method="post" name="hyv-yt-search" id="hyv-yt-search">
+                            <input type="search" name="hyv-search" id="hyv-search" placeholder="Search..." class="ui-autocomplete-input" autocomplete="off">
+                            <button class="icon" id="hyv-searchBtn"></button>
+                        </form>
+                    </div>
+                    <div id="hyv-watch-content" class="hyv-watch-main-col hyv-card hyv-card-has-padding">
+                        <ul id="hyv-read-related" class="hyv-video-list">
+                        </ul>
+                    </div>
+                    
+                    
+                    <br><br>
+
+                     <div id="hyv-watch-content" class="hyv-watch-main-col hyv-card hyv-card-has-padding">
+                        <ul id="hyv-watch-related" class="hyv-video-list">
+                        </ul>
+                    </div>                   
+                        		
 					<div class="form-group col-xs-12 col-md-6 ">
 						<button type="button" class="btn btn-primary form-control" id="submitImg">IMAGENES</button>
 						<div id="divImg">

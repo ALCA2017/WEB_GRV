@@ -1,15 +1,19 @@
 package com.grv.util;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 public class Utilitarios {
 	
-	
-	 public String getFechaActual() {
+	/* AAAA/MM/DD : format PostgresSQL*/
+	 public Date getFechaActual() {
+		 
 		    Date ahora = new Date();
-		    SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
-		    return formateador.format(ahora);
+		    SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+		    java.sql.Date hoy = java.sql.Date.valueOf(formateador.format(ahora));    	
+		    return hoy;
 		}		
 
 }

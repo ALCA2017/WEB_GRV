@@ -46,7 +46,24 @@ function searchImagenes(){
 	});
 } 
 
+
 function searchVideos(){
+	  var service_url = 'https://kgsearch.googleapis.com/v1/entities:search';
+	  var params = {
+	    'query': 'Taylor Swift',
+	    'limit': 10,
+	    'indent': true,
+	    'key' : 'AIzaSyB71yL3Jv5dvIROXKNcoy0_mvck0GZIiCM',
+	  };
+	  $.getJSON(service_url + '?callback=?', params, function(response) {
+	    $.each(response.itemListElement, function(i, element) {
+	      $('<div>', {text:element['result']['name']}).appendTo(document.body);
+	    });
+	  });	
+	
+}
+
+function searchVideos_api_duckduckgo(){
 	textoABuscar = 'ashok';//$('#txtABuscar').val();
 	//var searchText= $("#searchVideo").val();
 	var urlDemo = "https://www.youtube.com/watch?v=lrnmYWx9NNM";

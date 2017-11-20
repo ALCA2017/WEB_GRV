@@ -1,9 +1,12 @@
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\impl\RecursosDAOImpl.java
+D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\MarkerDAO.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\mapper\UserInfoMapper.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\mapper\RecursoVideoVO.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\model\AreasAcademicas.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\service\impl\TemasUnidadDidacticaManagerImpl.java
+D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\util\main.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\RecursosDAO.java
+D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\controller\MarkerController.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\config\WebSecurityConfig.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\model\TemasUnidadDidactica.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\impl\UserInfoDAOImpl.java
@@ -19,9 +22,11 @@ D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\config\SpringWebAppInitializer.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\controller\TemasUnidadDidacticaController.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\controller\AreasAcademicasController.java
+D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\service\impl\MarkerManagerImp.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\service\impl\RecursosManagerImpl.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\config\SpringSecurityInitializer.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\impl\UnidadesDidacticasDAOImpl.java
+D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\mapper\MarkerVO.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\model\RecursoImagen.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\model\UnidadDidactica.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\util\OpenFile.java
@@ -32,7 +37,9 @@ D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\util\util.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\UnidadesDidacticasDAO.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\controller\RecursosController.java
+D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\service\MarkerManager.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\util\SpringRestTemplateExample.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\mapper\TemasUnidadDidacticaVO.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\service\RecursosManager.java
+D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\spring\security\dao\impl\MarkerDAOImp.java
 D:\2_WORKSPACE\spring\WEB_GRV\SistemaGestionRecursosVirtuales\src\main\java\com\grv\util\Utilitarios.java

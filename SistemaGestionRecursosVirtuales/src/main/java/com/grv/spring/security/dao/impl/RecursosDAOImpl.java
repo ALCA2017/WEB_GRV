@@ -127,7 +127,7 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 															  video.getResult(), 
 															  video.getText(), 
 															  video.getURL(), 
-															  "", "", 1, null});		  //update -> El formato fecha no corresponde
+															  "", "", 1, util.getFechaActual()});		  //update -> El formato fecha no corresponde
 	 }
 	
 	@Override
@@ -141,7 +141,7 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 															  video.getResult(), 
 															  video.getText(), 
 															  video.getURL(), 
-															  "", "", 1, null});		  //update -> El formato fecha no corresponde	  
+															  "", "", 1, util.getFechaActual()});		  //update -> El formato fecha no corresponde	  
 	 } 
 	
 	@Override
@@ -155,7 +155,7 @@ public class RecursosDAOImpl extends JdbcDaoSupport implements RecursosDAO{
 															  video.getResult(), 
 															  video.getText(), 
 															  video.getURL(), 
-															  "", "", 1, null});		  //update -> El formato fecha no corresponde
+															  "", "", 1, util.getFechaActual()});		  //update -> El formato fecha no corresponde
 	 }  	 
 	 
  
