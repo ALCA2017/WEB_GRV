@@ -80,9 +80,8 @@
 				</div>
 					
 				<div class="row">
-				  <div class="col-xs-6-grv">
-					  <div class="jumbotron_grv" style="height: 300px;">
-					  <br>
+				  <div class="col-xs-6">
+					  <div class="jumbotron" style="height: 300px;"><br>				  
 				  		<label class="label-control">Año Escolar</label><BR>				  		
 						<select  name="formSelectAnios" id="formSelectAnios">
 							<c:forEach items="${aniosacademicoslist}" var="anio">
@@ -98,7 +97,7 @@
 						<label class="label-control">Unidades Academicas</label><BR>
 						<select name="formSelectUnidades" id="formSelectUnidades" >
 						  <option>Seleccionar opción</option>
-						</select><br><br><br>
+						</select><br><br>
 						<div class="form-group">
 		                    <div class="col-md-10 col-md-offset-7">
 		                        <button type="button" onclick="Cancel();" class="btn btn-danger" id="btn-cancelar">
@@ -113,7 +112,7 @@
 		                </div>
 					  </div>				
 				  </div>				  
-				  <div class="col-xs-6-grv">	  
+				  <div class="col-xs-6">	  
 				  	<div class="jumbotron_grv" style="height: 300px;">
 						<ul class="list-group" id="list-temas"><li href="#" class="list-group-item title"> Temas de la Unidad</li></ul>
 				  	</div>

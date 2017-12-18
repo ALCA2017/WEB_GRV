@@ -55,7 +55,7 @@ public class RecursosController {
 							   @RequestParam(value = "Result", required = true) String Result,
 							   @RequestParam(value = "Text", required = true) String Text,							   
 							   @RequestParam(value = "URL", required = true) String URL) {
-		 System.out.println("Controller Guardar Video.........");
+		 //System.out.println("Controller Guardar Video.........");
 		 RecursoVideoVO video = 
 				 new RecursoVideoVO(Idsesion, Result, Text, URL);
 		 
@@ -68,7 +68,7 @@ public class RecursosController {
 			 					@RequestParam(value = "Result", required = true) String Result,
 			 					@RequestParam(value = "Text", required = true) String Text,
 			 					@RequestParam(value = "URL", required = true) String URL) {
-		 System.out.println("Controller Guardar Imagen.........");
+		 //System.out.println("Controller Guardar Imagen.........");
 		 RecursoImagenVO imagen = 
 				 new RecursoImagenVO(Idsesion, Result, Text, URL);
 		 manager.addImagen(imagen);
@@ -80,7 +80,7 @@ public class RecursosController {
 							 @RequestParam(value = "Result", required = true) String Result,
 							 @RequestParam(value = "Text", required = true) String Text,
 						  	 @RequestParam(value = "URL", required = true) String URL) {
-		 System.out.println("Controller Guardar Web.........");
+		// System.out.println("Controller Guardar Web.........");
 		 RecursoWebVO web = new RecursoWebVO(Idsesion, Result, Text, URL);
 		 manager.addWeb(web);
 	     return "";

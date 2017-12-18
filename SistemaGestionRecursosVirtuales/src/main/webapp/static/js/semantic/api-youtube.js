@@ -66,6 +66,8 @@ function SearchCompleted(response)
 });*/
         
 function youtubeApiCall(){
+	
+	
     $.ajax({
         cache: false,
         data: $.extend({
@@ -91,7 +93,7 @@ function youtubeApiCall(){
             					  +'<a href="#" class="hyv-content-link" title="'+e.snippet.title+'">'+"\n"
             					  +'<span class="title">'+e.snippet.title+'</span>'+"\n"            					  
             					  +'<span class="stat attribution">by <span>'+e.snippet.channelTitle+'</span></span>'+"\n"
-            					  +'<input type="radio" name="radioVideo" id="radioVideo" value="'+e.snippet.title+'|'+e.snippet.description+'|'+e.snippet.thumbnails.default.url+'">'+"\n"
+            					  +'<input type="radio" name="radioVideo" id="radioVideo" value="'+e.snippet.title+'|'+e.snippet.description+'|https://www.youtube.com/watch?v='+e.id.videoId+'&channelId='+e.snippet.channelId+'">'+"\n"
             					  +'</a></div>'+"\n"
             					  +'<div class="hyv-thumb-wrapper"><a href="" class="hyv-thumb-link">'+"\n"
             					  +'<span class="hyv-simple-thumb-wrap">'+"\n"            					  
