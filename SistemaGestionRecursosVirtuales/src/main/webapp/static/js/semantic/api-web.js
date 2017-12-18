@@ -1,10 +1,12 @@
 function webApiCall(){
+	//https://www.googleapis.com/customsearch/v1?key=INSERT_YOUR_API_KEY&cx=017576662512468239146:omuauf_lfve&q=lectures
+	 var webList ='';
     $.ajax({
         cache: false,
         data: $.extend({
             key			: 'AIzaSyBxoPDZ656i6Tw1cI9PvZsIF2FwwQZluRk',
-            q			: $('#hyv-search').val(),
-            cx			: '017576662512468239146:omuauf_lfve',
+            q			: $('#hyv-search').val(), 
+            cx			: '001688790240029507882:c8nprjnwjla',
             num			: 5,
             cr			: 'es'
         }, {maxResults:5,pageToken:$("#pageToken").val()}),
@@ -14,36 +16,92 @@ function webApiCall(){
         url: 'https://www.googleapis.com/customsearch/v1'
     })
     .done(function(data) {
-        var items = data.items, videoList = "";
-        $.each(items, function(index,e) {
-            var item = e.items[index];
-            var title = item.htmlTitle;
-            
-            videoList = videoList + '<li class="hyv-video-list-item"><div class="hyv-content-wrapper">'+
-            '<a href="'+item.link+'" class="hyv-content-link" title="'+title+'">'+
-            '<span class="title">'+title+'</span>'+
-            '<span class="stat attribution">by <span>'+item.displayLink+'</span></span></a>'+
-            '</div><div class="hyv-thumb-wrapper"><a href="" class="hyv-thumb-link">'+
-           // '<span class="hyv-simple-thumb-wrap">'+
-           // '<img alt="'+e.snippet.title+'" src="'+item.link+'" width="120" height="90"></span>'+
-            '</a></div></li>';
+        var items = data.items;
+        var webList = '';
+        
+        $.each(items, function(index,e) {           
+        	webList = webList +'<li><div class="hyv-content-wrapper">'+"\n"
+					          +'<a href="'+e.link+'" class="hyv-content-link" title="'+e.displayLink+'">'+"\n"
+					          +'<span>'+e.htmlTitle+'</span></a>'+"\n"
+        					  +'<input type="radio" name="radioWeb" id="radioWeb" value="'+e.htmlTitle+'|'+e.displayLink+'|'+e.link+'">'+"\n"
+					          +'</div></li><br>';
         });
-        $("#hyv-read-related").html(videoList);
+        $("#hyv-read-related").html(webList);
         // JSON Responce to display for user
         new PrettyJSON.view.Node({ 
             el:$(".hyv-watch-sidebar-body"), 
             data:data
         });
-    });
+    }).fail(function (jqXHR,status,err) {
+    	  //alert("Promise error callback.");
+    	  webList = '<li>No se encontraron recursos web para el tema seleccionado <div class="hyv-content-wrapper" style="display:none;">'+"\n"
+    	  		  +'<a href="#" class="hyv-content-link" title="sinData"><span>Sin data</span></a>'+"\n"
+    	  		  +'<input type="radio" name="radioWeb" id="radioWeb"></div></li>';
+    	  $("#hyv-read-related").html(webList);
+    }).always(function () {
+      //alert("Promise completion callback.");
+    })
 }
 
+function imageApiCall(){
+	//https://www.googleapis.com/customsearch/v1?key=INSERT_YOUR_API_KEY&cx=017576662512468239146:omuauf_lfve&q=lectures
+    $.ajax({
+        cache: false,
+        data: $.extend({
+            key			: 'AIzaSyDGaz0abloQdqa-xsApsIKhWFYvIcXUFw4',
+            q			: $('#hyv-search').val(), 
+            cx			: '001688790240029507882:c8nprjnwjla',
+            num			: 5,
+            cr			: 'es',
+            start		: 1,
+            searchType	: 'image'
+        }, {maxResults:5,pageToken:$("#pageToken").val()}),
+        dataType: 'json',
+        type: 'GET',
+        timeout: 5000,
+        url: 'https://www.googleapis.com/customsearch/v1'
+    })
+    .done(function(data) {
+        var items = data.items;
+        var imgList ='';
+        
+        $.each(items, function(index,e) {           
+        	imgList = imgList +'<li class="hyv-video-list-item">'+"\n"        					  
+        					  +'<div class="hyv-content-wrapper"> '+"\n"       
+							  +'<a href="#" class="hyv-content-link" title="'+e.link+'">'+"\n"
+							  +'<span class="title">'+e.title+'</span>'+"\n"
+							  +'<input type="radio" name="radioImage" id="radioImage" value="'+e.title+'|'+e.title+'|'+e.link+'">'+"\n"
+							  +'</a></div><div class="hyv-thumb-wrapper"><a href="" class="hyv-thumb-link"><span class="hyv-simple-thumb-wrap">'+"\n"
+							  +'<img alt="'+e.title+'" src="'+e.link+'" width="120" height="90">'+"\n"							  
+							  +'</span></a>'+"\n"							  
+							  +'</div>'+"\n"
+							  +'</li>';
+        });
+        $("#hyv-see-related").html(imgList);
+        // JSON Responce to display for user
+        new PrettyJSON.view.Node({ 
+            el:$(".hyv-watch-sidebar-body"), 
+            data:data
+        });
+    })
+    .fail(function (jqXHR,status,err) {
+  	  //alert("Promise error callback.");
+      imgList ='<li>No se encontraron recursos imagenes para el tema seleccionado <div class="hyv-content-wrapper" style="display:none;">'+"\n"
+  	  		  +'<a href="#" class="hyv-content-link" title="sinData"><span>Sin data</span></a>'+"\n"
+  	  		  +'<input type="radio" name="radioImage" id="radioImage"></div></li>';
+  	  $("#hyv-see-related").html(imgList);
+  })
+  .always(function () {
+    //alert("Promise completion callback.");
+  })
+}
 
 
 var _prevIndex 		= 0;
 var _nextIndex 		= 0;
 var _resultsPerPage = 10;
 var _pageNumber 	= 1;
-
+/*
 $(function ()
 {
 	 console.log( "ready functionm!" );
@@ -54,7 +112,7 @@ $(function ()
 	console.log( "ready Termino a buscatr!"+$("#txtSearchTerm").val() );
 }
 
-);
+);*/
 
 function WebApiCall_antes(term, direction)
 {

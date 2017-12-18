@@ -1,0 +1,71 @@
+.list-content{
+ min-height:300px;
+}
+.list-content .list-group .title{
+  background:#5bc0de;
+  border:2px solid #DDDDDD;
+  font-weight:bold;
+  color:#FFFFFF;
+}
+.list-group-item img {
+    height:80px; 
+    width:80px;
+}
+
+.jumbotron .btn {
+    padding: 5px 5px !important;
+    font-size: 12px !important;
+}
+.prj-name {
+    color:#5bc0de;    
+}
+.break{
+    width:100%;
+    margin:20px;
+}
+.name {
+    color:#5bc0de;    
+}	        
+	
+.jumbotron_grv {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-bottom: 3px;
+	color: inherit;
+	background-color: #eee
+	
+}
+
+.container .jumbotron_grv, .container-fluid .jumbotron_grv {
+	padding-right: 15px;
+	padding-left: 15px;
+	border-radius: 6px
+}
+
+@media screen and (min-width: 768px)
+.container .jumbotron_grv, .container-fluid .jumbotron_grv {
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.col-lg-6-grv {
+    position: relative;
+    min-height: 1px;
+    padding-right: 1px;
+    padding-left: 1px;
+}
+
+.col-xs-6-grv {
+	position: relative;
+	min-height: 1px;
+	padding-right: 1px;
+	padding-left: 1px
+}
+
+.col-xs-6-grv{
+	float: left
+}
+
+.col-xs-6-grv {
+	width: 50%
+}

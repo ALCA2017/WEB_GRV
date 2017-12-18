@@ -1,10 +1,3 @@
-function GuardarRecursos(){
-	GuardarVideo()
-	GuardarImagen()
-	GuardarWeb()
-	alert("Los recursos se han guardado exitosamente!");
-}
-
 function searchAPI(){
 	var searchText= $("#search1").val();
 	var htmlContent="<ul>"; 
@@ -100,77 +93,6 @@ function searchWeb(){
 	});
 } 
 
-function GuardarVideo(){	
-	var params = {
-			Idsesion:1, Result:"Resultados de Video",
-			Text:"Estudia las variables proposicionales o sentencias lógicas, sus posibles implicaciones, evaluaciones de verdad y en algunos casos su nivel absoluto de verdad.",
-			URL:"https://www.youtube.com/watch?v=SUykzb4RXkA"
-			};	
-	    $.ajax({
-	    	type: 'GET',
-	        url: 'video/create',
-	        data: params,
-	        dataType: 'json',	        
-	        success: function (data) {        	
-	        	console.log("Se inserto video exitosamente"  );
-	        },	        
-	        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
-	        	 console.log("Status : "+textStatus );
-	        	 console.log("Error : "+errorThrown );
-	        },
-	        complete : function() {
-
-	       	}	        
-	    });
-}
-
-function GuardarImagen(){	
-	var params = {
-			Idsesion:1, Result:"Resultados de Imagenes",
-			Text:"Estudia las variables proposicionales o sentencias lógicas, sus posibles implicaciones, evaluaciones de verdad y en algunos casos su nivel absoluto de verdad.",
-			URL:"https://filosofia.laguia2000.com/wp-content/uploads/2012/12/b_001.jpg"
-			};	
-	    $.ajax({
-	    	type: 'GET',
-	        url: 'imagen/create',
-	        data: params,
-	        dataType: 'json',	        
-	        success: function (data) {        	
-	        	console.log("Se inserto imagen exitosamente"  );
-	        },	        
-	        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
-	        	 console.log("Status : "+textStatus );
-	        	 console.log("Error : "+errorThrown );
-	        },
-	        complete : function() {
-
-	       	}	        
-	    });
-}
-
-function GuardarWeb(){	
-	var params = {
-			Idsesion:1, Result:"Resultados de Web",
-			Text:"Estudia las variables proposicionales o sentencias lógicas, sus posibles implicaciones, evaluaciones de verdad y en algunos casos su nivel absoluto de verdad.",
-			URL:"http://rosmirofuentesrocha.weebly.com/uploads/6/2/7/4/6274527/deduccion_proposicional.pdf"
-			};	
-	    $.ajax({
-	    	type: 'GET',
-	        url: 'web/create',
-	        data: params,
-	        dataType: 'json',	        
-	        success: function (data) {        	
-	        	console.log("Se inserto web exitosamente"  );
-	        },	        
-	        error    : function(XMLHttpRequest, textStatus, errorThrown) {	        	
-	        	 console.log("Status : "+textStatus );
-	        	 console.log("Error : "+errorThrown );
-	        },
-	        complete : function() {
-
-	       	}	        
-	    });
-}
 
 function searchApiGoogle(){
 	  var service_url = 'https://kgsearch.googleapis.com/v1/entities:search';
@@ -190,23 +112,9 @@ function searchApiGoogle(){
 
 
 
-function semanticSearch(){
+function Seleccionar(){
+	alert("List seleccionado!");
 	
-	var cv="", ci="", cw="", ct="";
-	
-	if($("#chkVIDEO").is(':checked')){ cv=1;}
-	if($("#chkIMG").is(':checked'))  { ci=2;}
-	if($("#chkWEB").is(':checked'))  { cw=3;}	
-	
-	ct = cv+ci+cw;
-	textoABuscar = $('#txtABuscar').val();
-	
-	if(ct==""){ alert("Debe seleccionar una opción");		
-	}else if(ct=6){
-		searchImagenes(textoABuscar);
-		searchVideos(textoABuscar);
-		searchWeb(textoABuscar);	
-	}
 }	
 
 function selectChkTema() {

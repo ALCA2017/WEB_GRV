@@ -83,9 +83,22 @@ function youtubeApiCall(){
         url: 'https://www.googleapis.com/youtube/v3/search'
     })
     .done(function(data) {
-        var items = data.items, videoList = "";
+        var items = data.items;
+        var videoList ='';
         $.each(items, function(index,e) {
-            videoList = videoList + '<li class="hyv-video-list-item"><div class="hyv-content-wrapper"><a href="" class="hyv-content-link" title="'+e.snippet.title+'"><span class="title">'+e.snippet.title+'</span><span class="stat attribution">by <span>'+e.snippet.channelTitle+'</span></span></a></div><div class="hyv-thumb-wrapper"><a href="" class="hyv-thumb-link"><span class="hyv-simple-thumb-wrap"><img alt="'+e.snippet.title+'" src="'+e.snippet.thumbnails.default.url+'" width="120" height="90"></span></a></div></li>';
+            videoList = videoList +'<li class="hyv-video-list-item">'+"\n"            				      
+            				      +'<div class="hyv-content-wrapper">'+"\n"
+            					  +'<a href="#" class="hyv-content-link" title="'+e.snippet.title+'">'+"\n"
+            					  +'<span class="title">'+e.snippet.title+'</span>'+"\n"            					  
+            					  +'<span class="stat attribution">by <span>'+e.snippet.channelTitle+'</span></span>'+"\n"
+            					  +'<input type="radio" name="radioVideo" id="radioVideo" value="'+e.snippet.title+'|'+e.snippet.description+'|'+e.snippet.thumbnails.default.url+'">'+"\n"
+            					  +'</a></div>'+"\n"
+            					  +'<div class="hyv-thumb-wrapper"><a href="" class="hyv-thumb-link">'+"\n"
+            					  +'<span class="hyv-simple-thumb-wrap">'+"\n"            					  
+            					  +'<img alt="'+e.snippet.title+'" src="'+e.snippet.thumbnails.default.url+'" width="120" height="90">'+"\n"            					  
+            					  +'</span></a>'+"\n"            					  
+            					  +'</div>'+"\n"
+            					  +'</li>';
         });
         $("#hyv-watch-related").html(videoList);
         // JSON Responce to display for user
@@ -93,7 +106,17 @@ function youtubeApiCall(){
             el:$(".hyv-watch-sidebar-body"), 
             data:data
         });
-    });
+    })   
+    .fail(function (jqXHR,status,err) {
+    	  //alert("Promise error callback.");
+    	videoList ='<li>No se encontraron recursos imagenes para el tema seleccionado <div class="hyv-content-wrapper" style="display:none;">'+"\n"
+    	  		  +'<a href="#" class="hyv-content-link" title="sinData"><span>Sin data</span></a>'+"\n"
+    	  		  +'<input type="radio" name="radioVideo" id="radioVideo"></div></li>';
+    	  $("#hyv-watch-related").html(videoList);
+    })
+    .always(function () {
+      //alert("Promise completion callback.");
+    })
 }
 
 

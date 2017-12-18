@@ -64,7 +64,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
        registry.addResourceHandler("/img/**").addResourceLocations("/static/img/").setCachePeriod(31556926);
        registry.addResourceHandler("/js/**").addResourceLocations("/static/js/").setCachePeriod(31556926);
        registry.addResourceHandler("/pdf/**").addResourceLocations("/static/pdf/").setCachePeriod(31556926);
+       registry.addResourceHandler("/bootstrap/**").addResourceLocations("/static/bootstrap/").setCachePeriod(31556926);
        registry.addResourceHandler("/font-awesome/**").addResourceLocations("/static/font-awesome/").setCachePeriod(31556926);
+       
    }
  
    // Equivalent for <mvc:default-servlet-handler/> tag
